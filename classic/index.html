@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.rawgit.com/objectivehtml/FlipClock/tree/master/compiled/flipclock.css">
+		<style>
+			.flip-clock-label{
+				display: none;
+			}
+		</style>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdn.rawgit.com/objectivehtml/FlipClock/tree/master/compiled/flipclock.js"></script>	
+	</head>
+	<body>
+		<div class="clock-wrapper" style="text-align: center; margin-top: 50vh;transform: translateY(-50%);">
+			<div class="clock" style="display: inline-block; width: auto;"></div>
+		</div>
+		<script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+
+				var currentDate = new Date();
+				var newYear  = new Date(currentDate.getFullYear() + 1, 0, 1);
+				var secondsDiff = newYear.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				clock = $('.clock').FlipClock(secondsDiff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+		</script>
+		
+	</body>
+</html>

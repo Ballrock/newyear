@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.rawgit.com/objectivehtml/FlipClock/master/compiled/flipclock.css">
+		<style>
+			.flip-clock-label{
+				display: none;
+			}
+		</style>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdn.rawgit.com/objectivehtml/FlipClock/master/compiled/flipclock.min.js"></script>	
+	</head>
+	<body>
+		<div class="clock-wrapper" style="text-align: center; margin-top: 50vh;transform: translateY(-50%);">
+			<div class="clock" style="display: inline-block; width: auto;"></div>
+		</div>
+		<script type="text/javascript">
+			var clock;
+			var synth = window.speechSynthesis;
+
+			$(document).ready(function() {
+
+				var currentDate = new Date();
+				var newYear  = new Date(currentDate.getFullYear() + 1, 0, 1);
+				var secondsDiff = newYear.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				clock = $('.clock').FlipClock(secondsDiff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+
+				var ny3h = secondsDiff * 1000 - 3 * 60 * 60 * 1000;
+				var ny2h = secondsDiff * 1000 - 2 * 60 * 60 * 1000;
+				var ny1h = secondsDiff * 1000 - 1 * 60 * 60 * 1000;
+				var ny30min = secondsDiff * 1000 - 30 * 60 * 1000;
+				var ny10min = secondsDiff * 1000 - 10 * 60 * 1000;
+				var ny5min = secondsDiff * 1000 - 5 * 60 * 1000;
+				var ny1min = secondsDiff * 1000 - 1 * 60 * 1000;
+				var ny30s = secondsDiff * 1000 - 30 * 1000;
+				var ny = secondsDiff;
+
+				speak("test 1 2 3");
+				
+			});
+
+			var speak = function (textToSpeak) {
+				var utterThis = new SpeechSynthesisUtterance(textToSpeak);
+				utterThis.lang = "fr-FR";
+				synth.speak(utterThis);
+			}
+		</script>
+		
+	</body>
+</html>
