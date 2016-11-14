@@ -17,7 +17,8 @@
 		<script type="text/javascript">
 			var clock;
 			var synth = window.speechSynthesis;
-
+			var selectedVoice;
+			var lang = "fr-FR";
 			$(document).ready(function() {
 
 				var currentDate = new Date();
@@ -39,13 +40,22 @@
 				var ny30s = secondsDiff * 1000 - 30 * 1000;
 				var ny = secondsDiff;
 
-				speak("test 1 2 3");
+				catchVoice(lang);
+				setTimeout(function() {speak("test 1 2 3")}, 10000);
 				
 			});
-
+			var catchVoice = function (lang){
+				for(i = 0; i < synth.getVoices().length ; i++) {
+					if(synth.getVoices()[i].lang === lang) {
+						selectedVoice = synth.getVoices()[i];
+						break;
+					}
+				}
+			}
 			var speak = function (textToSpeak) {
 				var utterThis = new SpeechSynthesisUtterance(textToSpeak);
-				utterThis.lang = "fr-FR";
+				utterThis.voice = selectedVoice;
+				utterThis.lang = lang;
 				synth.speak(utterThis);
 			}
 		</script>
