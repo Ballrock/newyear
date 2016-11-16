@@ -30,18 +30,36 @@
 					countdown: true
 				});
 
-				var ny3h = secondsDiff * 1000 - 3 * 60 * 60 * 1000;
-				var ny2h = secondsDiff * 1000 - 2 * 60 * 60 * 1000;
-				var ny1h = secondsDiff * 1000 - 1 * 60 * 60 * 1000;
-				var ny30min = secondsDiff * 1000 - 30 * 60 * 1000;
-				var ny10min = secondsDiff * 1000 - 10 * 60 * 1000;
-				var ny5min = secondsDiff * 1000 - 5 * 60 * 1000;
-				var ny1min = secondsDiff * 1000 - 1 * 60 * 1000;
-				var ny30s = secondsDiff * 1000 - 30 * 1000;
-				var ny = secondsDiff;
+				/*var ny3h = secondsDiff * 1000 - (3 * 60 * 60 * 1000);
+				var ny2h = secondsDiff * 1000 - (2 * 60 * 60 * 1000);
+				var ny1h = secondsDiff * 1000 - (1 * 60 * 60 * 1000);
+				var ny30min = secondsDiff * 1000 - (30 * 60 * 1000);
+				var ny10min = secondsDiff * 1000 - (10 * 60 * 1000);
+				var ny5min = secondsDiff * 1000 - (5 * 60 * 1000);
+				var ny1min = secondsDiff * 1000 - (1 * 60 * 1000);
+				var ny30s = secondsDiff * 1000 - (30 * 1000);
+				var ny = secondsDiff * 1000 + (10 * 1000);*/
+
+				var ny3h = 0000;
+				var ny2h = 5000;
+				var ny1h = 10000;
+				var ny30min = 15000;
+				var ny10min = 20000;
+				var ny5min = 25000;
+				var ny1min = 30000;
+				var ny30s = 35000;
+				var ny = 40000;
 
 				catchVoice(lang);
-				setTimeout(function() {speak("test 1 2 3")}, 10000);
+				setTimeout(function() {speak("On est large ! Allons se remplir le bidon")}, ny3h);
+				setTimeout(function() {speak("C'est bon encore deux heures, une petite bière ?")}, ny2h);
+				setTimeout(function() {speak("Il nous reste 1 heures. Ou est le brézain ?")}, ny1h);
+				setTimeout(function() {speak("Juda, donne un peu de curé nantais à tes camarades")}, ny30min);
+				setTimeout(function() {speak("ça reprendra bien un peu de vin rouge ?")}, ny10min);
+				setTimeout(function() {speak("Hey les gars, plus que 5 minutes")}, ny5min);
+				setTimeout(function() {speak("H moins une minute")}, ny1min);
+				setTimeout(function() {speak("Non mais la serieux c'est dans pas longtemps")}, ny30s);
+				setTimeout(function() {speak("Joyeux Nouvel An, bande de gros !")}, ny);
 				
 			});
 			var catchVoice = function (lang){
